@@ -3,8 +3,9 @@ import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 
-import {activeFilterChanged, fetchFilters} from '../../actions';
+import {fetchFilters} from '../../store/actions';
 import Spinner from '../spinner/Spinner';
+import {activeFilterChanged} from "./filtersSlice";
 
 const HeroesFilters = () => {
 
@@ -12,10 +13,8 @@ const HeroesFilters = () => {
   const dispatch = useDispatch();
   const {request} = useHttp();
 
-  // Запрос на сервер для получения фильтров и последовательной смены состояния
   useEffect(() => {
     dispatch(fetchFilters(request));
-
     // eslint-disable-next-line
   }, []);
 

@@ -1,5 +1,6 @@
-import heroesReducer from "../reducers/heroes";
-import filterReducer from "../reducers/filters";
+// import heroesReducer from "./reducers/heroes";
+import heroesReducer from "../components/heroesList/heroesSlice";
+import filterReducer from "../components/heroesFilters/filtersSlice";
 import {configureStore} from "@reduxjs/toolkit";
 
 // const reducer = combineReducers({
