@@ -17,21 +17,12 @@ const HeroesList = () => {
     state => state.heroesReducer.heroes,
     (filter, heroes) => {
       if (filter === 'all') {
-        console.log('render')
         return heroes;
       } else {
         return heroes.filter(item => item.element === filter);
       }
     }
   );
-
-  // const filteredHeroes = useSelector(state => {
-  //   if (state.filterReducer.activeFilter === 'all') {
-  //     return state.heroesReducer.heroes;
-  //   } else {
-  //     return state.heroesReducer.heroes.filter(item => item.element === state.filterReducer.activeFilter);
-  //   }
-  // });
 
   const filteredHeroes = useSelector(filteredHeroSelector);
   const heroesLoadingStatus = useSelector(state => state.heroesReducer.heroesLoadingStatus);
