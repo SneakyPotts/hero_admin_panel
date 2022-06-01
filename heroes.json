@@ -42,8 +42,8 @@
     },
     {
       "value": "earth",
-      "caption": "Ветер",
-      "class": "Земля"
+      "caption": "Земля",
+      "class": ""
     }
   ]
 }

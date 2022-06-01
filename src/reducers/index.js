@@ -44,6 +44,11 @@ const reducer = (state = initialState, {type, payload}) => {
         ...state,
         heroes: [...state.heroes, payload]
       }
+    case 'HERO_DELETE':
+      return {
+        ...state,
+        heroes: payload
+      }
     default:
       return state
   }

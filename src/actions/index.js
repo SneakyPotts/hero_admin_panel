@@ -41,3 +41,10 @@ export const heroCreate = (hero) => {
     payload: hero
   }
 }
+
+export const heroDelete = (hero) => {
+  return {
+    type: 'HERO_DELETE',
+    payload: hero
+  }
+}
