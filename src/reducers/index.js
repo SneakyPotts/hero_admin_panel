@@ -49,11 +49,6 @@ const reducer = (state = initialState, {type, payload}) => {
         ...state,
         heroes: payload
       }
-    case 'HERO_FILTER':
-      return {
-        ...state,
-        heroes: payload
-      }
     default:
       return state
   }

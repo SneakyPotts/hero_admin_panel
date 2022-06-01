@@ -48,10 +48,3 @@ export const heroDelete = (hero) => {
     payload: hero
   }
 }
-
-export const heroFilter = (hero) => {
-  return {
-    type: 'HERO_FILTER',
-    payload: hero
-  }
-}

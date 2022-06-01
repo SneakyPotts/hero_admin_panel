@@ -8,7 +8,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import classNames from "classnames";
 import {useState} from "react";
-import {heroesFetchingError, heroFilter} from "../../actions";
+import {heroesFetched, heroesFetching, heroesFetchingError} from "../../actions";
 import {useHttp} from "../../hooks/http.hook";
 
 const HeroesFilters = () => {
@@ -19,9 +19,18 @@ const HeroesFilters = () => {
 
   const filterHeroList = async (value) => {
     setActiveFilter(value);
-    request(`http://localhost:3001/heroes?element=${value}`)
-      .then(data => dispatch(heroFilter(data)))
-      .catch(() => dispatch(heroesFetchingError()));
+
+    if (value === "all") {
+      dispatch(heroesFetching());
+      request("http://localhost:3001/heroes")
+        .then(data => dispatch(heroesFetched(data)))
+        .catch(() => dispatch(heroesFetchingError()))
+    } else {
+      dispatch(heroesFetching());
+      request(`http://localhost:3001/heroes?element=${value}`)
+        .then(data => dispatch(heroesFetched(data)))
+        .catch(() => dispatch(heroesFetchingError()))
+    }
   }
 
   return (
