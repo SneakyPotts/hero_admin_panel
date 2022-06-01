@@ -9,7 +9,7 @@
 // данных из фильтров
 
 import {useDispatch, useSelector} from "react-redux";
-import {filtersFetched, filtersFetching, filtersFetchingError, heroCreate} from "../../actions";
+import {filtersFetched, filtersFetching, filtersFetchingError, heroCreate, heroesFetchingError} from "../../actions";
 import {v4 as genId} from 'uuid';
 import {useEffect} from "react";
 import {useHttp} from "../../hooks/http.hook";
@@ -35,9 +35,10 @@ const HeroesAddForm = () => {
       description: e.target.text.value,
       element: e.target.element.value
     }
-    dispatch(heroCreate(newHeroData));
     e.target.reset();
-    request("http://localhost:3001/heroes", "POST", JSON.stringify(newHeroData));
+    request("http://localhost:3001/heroes", "POST", JSON.stringify(newHeroData))
+      .then(() => dispatch(heroCreate(newHeroData)))
+      .catch(() => dispatch(heroesFetchingError()));
   }
 
   return (

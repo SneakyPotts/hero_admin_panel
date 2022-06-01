@@ -34,8 +34,9 @@ const HeroesList = () => {
     const deleteHeroItem = (key) => {
         const newHeroesList = heroes.filter(({id}) => key !== id);
 
-        dispatch(heroDelete(newHeroesList));
-        request(`http://localhost:3001/heroes/${key}`, "DELETE");
+        request(`http://localhost:3001/heroes/${key}`, "DELETE")
+          .then(() => dispatch(heroDelete(newHeroesList)))
+          .catch(() => dispatch(heroesFetchingError()));
     }
 
     const renderHeroesList = (arr) => {

@@ -24,12 +24,12 @@ const HeroesFilters = () => {
       dispatch(heroesFetching());
       request("http://localhost:3001/heroes")
         .then(data => dispatch(heroesFetched(data)))
-        .catch(() => dispatch(heroesFetchingError()))
+        .catch(() => dispatch(heroesFetchingError()));
     } else {
       dispatch(heroesFetching());
       request(`http://localhost:3001/heroes?element=${value}`)
         .then(data => dispatch(heroesFetched(data)))
-        .catch(() => dispatch(heroesFetchingError()))
+        .catch(() => dispatch(heroesFetchingError()));
     }
   }
 
