@@ -30,10 +30,10 @@ const HeroesAddForm = () => {
   const onCreateNewHero = (e) => {
     e.preventDefault();
     const newHeroData = {
-      "id": genId(),
-      "name": e.target.name.value,
-      "description": e.target.text.value,
-      "element": e.target.element.value
+      id: genId(),
+      name: e.target.name.value,
+      description: e.target.text.value,
+      element: e.target.element.value
     }
     dispatch(heroCreate(newHeroData));
     e.target.reset();
@@ -75,10 +75,13 @@ const HeroesAddForm = () => {
           id="element"
           name="element"
         >
+          <option selected disabled hidden>Я владею элементом...</option>
           {filtersLoadingStatus === "loading"
             ? <option>Загрузка...</option>
-            : filters.map(({value, caption}, index) =>
-              (<option key={index} value={value}>{caption}</option>))}
+            : filters.map(({value, caption}, index) => {
+              if (value !== "all")
+                return <option key={index} value={value}>{caption}</option>
+            })}
         </select>
       </div>
 

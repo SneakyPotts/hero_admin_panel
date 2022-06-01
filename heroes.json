@@ -22,28 +22,28 @@
   "filters": [
     {
       "value": "all",
-      "caption": "Я владею элементом...",
-      "class": ""
+      "caption": "Все",
+      "styleClass": "btn-outline-dark"
     },
     {
       "value": "fire",
       "caption": "Огонь",
-      "class": ""
+      "styleClass": "btn-danger"
     },
     {
       "value": "water",
       "caption": "Вода",
-      "class": ""
+      "styleClass": "btn-primary"
     },
     {
       "value": "wind",
       "caption": "Ветер",
-      "class": ""
+      "styleClass": "btn-success"
     },
     {
       "value": "earth",
       "caption": "Земля",
-      "class": ""
+      "styleClass": "btn-secondary"
     }
   ]
 }
